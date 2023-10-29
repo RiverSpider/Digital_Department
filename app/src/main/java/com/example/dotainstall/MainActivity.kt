@@ -17,6 +17,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        setContent {
+            DotaHeader()
+        }
     }
 }
 
@@ -28,7 +32,5 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    DotaInstallTheme {
-        Greeting("Android")
-    }
+    DotaHeader()
 }

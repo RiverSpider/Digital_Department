@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <font
-        android:font="@font/Sk_Modernist_Bold"
+        android:font="@font/skmodernistbold"
         android:fontStyle="normal"
         android:fontWeight="700"
         tools:ignore="ResourceCycle,UnusedAttribute"
-        app:font="@font/sk_modernist_bold_font"
+        app:font="@font/skmodernistbold"
         app:fontStyle="normal"
         app:fontWeight="700"
         ></font>

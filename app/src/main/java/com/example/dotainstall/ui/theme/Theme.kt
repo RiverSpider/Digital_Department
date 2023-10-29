@@ -45,7 +45,7 @@ fun DotaInstallTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
     )
 }
 
-object AppTheme{
+/*object AppTheme{
     object BgColors{}
     object ButtonColors{}
     object TextColors{}
@@ -65,4 +65,4 @@ object AppTheme{
             )
         }
     }
-}
+}*/
