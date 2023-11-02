@@ -44,25 +44,3 @@ fun DotaInstallTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
             content = content
     )
 }
-
-/*object AppTheme{
-    object BgColors{}
-    object ButtonColors{}
-    object TextColors{}
-    object TextStyle{
-        val Bold_48
-        @Composable
-        get() = {
-            TextStyle(
-                fontFamily = FontFamily,
-                fontWeight = = FontWeigth.Bold,
-                fontSize = 48.sp,
-                platformStyle = platformTextStyle(includeFontPadding = false),
-                lineHeightStyle = LineHeigthStyle(
-                    LineHeightStyle.Alignment.Proportional,
-                    LineHeightStyle.Trim.None
-                ),
-            )
-        }
-    }
-}*/

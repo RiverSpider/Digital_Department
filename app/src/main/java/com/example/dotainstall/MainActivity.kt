@@ -1,13 +1,14 @@
 package com.example.dotainstall
 
+import android.content.Context
 import android.os.Bundle
 import android.text.style.BackgroundColorSpan
+import android.widget.ScrollView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -30,37 +31,7 @@ class MainActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color(0xFF050B18))
-            ) {
-                DotaHeader()
-                DotaDescription()
-                val imageList = listOf(
-                    R.drawable.preview1,
-                    R.drawable.preview2,
-                    R.drawable.preview3
-                )
-
-                DotaImages(images = imageList,
-                    modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
-                    imageSize = 200.dp
-                )
-                InstallButton()
-                DotaLogo(
-                    imageResId = R.drawable.logo,
-                    size = 80.dp,
-                    primaryBorderSize = 1.dp,
-                    primaryBorderColor = androidx.compose.ui.graphics.Color.DarkGray,
-                    cornerRadiusprimary = 8.dp,
-                    secondaryBorderSize = 10.dp,
-                    secondaryBorderColor = androidx.compose.ui.graphics.Color.Black,
-                    cornerRadiussecondary = 17.dp,
-                    x = 17.dp,
-                    y = 275.dp
-                )
-            }
+            ScrollableScreen()
         }
     }
 }
@@ -68,35 +39,56 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    Box(
+    ScrollableScreen()
+}
+
+
+@Composable
+fun ScrollableScreen() {
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFF050B18))
     ) {
-        DotaHeader()
-        DotaDescription()
-        val imageList = listOf(
-            R.drawable.preview1,
-            R.drawable.preview2,
-            R.drawable.preview3
-        )
+        items(1) {
+            Column {
+                DotaHeader()
+                Row {
+                    DotaLogo(
+                        imageResId = R.drawable.logo,
+                        size = 80.dp,
+                        primaryBorderSize = 1.dp,
+                        primaryBorderColor = androidx.compose.ui.graphics.Color.DarkGray,
+                        cornerRadiusprimary = 8.dp,
+                        secondaryBorderSize = 10.dp,
+                        secondaryBorderColor = androidx.compose.ui.graphics.Color.Black,
+                        cornerRadiussecondary = 17.dp,
+                        x = 20.dp,
+                        y = (-30).dp
+                    )
+                    DotaName()
+                }
+                DotaTags()
+                DotaDescription()
+                Spacer(modifier = Modifier.height(10.dp))
+                val imageList = listOf(
+                    R.drawable.preview1,
+                    R.drawable.preview2,
+                    R.drawable.preview3
+                )
 
-        DotaImages(images = imageList,
-            modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
-            imageSize = 200.dp
-        )
-        InstallButton()
-        DotaLogo(
-            imageResId = R.drawable.logo,
-            size = 80.dp,
-            primaryBorderSize = 1.dp,
-            primaryBorderColor = androidx.compose.ui.graphics.Color.DarkGray,
-            cornerRadiusprimary = 8.dp,
-            secondaryBorderSize = 10.dp,
-            secondaryBorderColor = androidx.compose.ui.graphics.Color.Black,
-            cornerRadiussecondary = 17.dp,
-            x = 17.dp,
-            y = 275.dp
-        )
+                DotaImages(
+                    images = imageList,
+                    modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
+                    imageSize = 200.dp
+                )
+                Spacer(modifier = Modifier.height(20.dp))
+                Rating()
+                Spacer(modifier = Modifier.height(20.dp))
+                Review()
+                Spacer(modifier = Modifier.height(20.dp))
+                InstallButton()
+            }
+        }
     }
 }
