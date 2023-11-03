@@ -2,49 +2,52 @@ package com.example.dotainstall
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.dotainstall.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable
 fun InstallButton() {
+    val shapes = Shapes()
+
     val scaffoldState = rememberScaffoldState()
-    var buttonText by remember { mutableStateOf("Install") } // stringResource(id = R.string.install) Composable calls are not allowed inside the calculation parameter of inline fun <T> remember(calculation: () -> TypeVariable(T)): TypeVariable(T)
+    val installtext = stringResource(id = R.string.install)
+    val reinstalltext = stringResource(id = R.string.sad)
+    var buttonText by remember { mutableStateOf(installtext) }
 
     val coroutineScope = rememberCoroutineScope()
 
     val showSnackbar: () -> Unit = {
-        buttonText = ":^("
+        buttonText = reinstalltext
         coroutineScope.launch {
-            scaffoldState.snackbarHostState.showSnackbar(":^(")
+            scaffoldState.snackbarHostState.showSnackbar(reinstalltext)
         }
     }
-    Column(modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 60.dp)) {
+    Column(modifier = Modifier.padding(SpacerSize)) {
         Button(
             onClick = { showSnackbar() },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(40.dp),
+                .height(ButtonHeight),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color(0xFFF4D144),
-                contentColor = Color(0xFF050B18)
+                backgroundColor = ButtonColor,
+                contentColor = ButtonTextColor
             ),
-            shape = RoundedCornerShape(8.dp)
+            shape = shapes.small
         ) {
             Text(
                 text = buttonText,
                 fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                fontSize = 16.sp
+                fontSize = TextLarge
             )
         }
     }

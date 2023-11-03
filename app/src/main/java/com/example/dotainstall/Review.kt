@@ -20,6 +20,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.dotainstall.ui.theme.*
 
 @Composable
 fun Review() {
@@ -28,7 +29,7 @@ fun Review() {
             .fillMaxWidth()
     ) {
         Row(
-            modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp).fillMaxWidth(),
+            modifier = Modifier.padding(start = SpacerSize, end = SpacerSize).fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -36,7 +37,7 @@ fun Review() {
                 painter = painterResource(id = R.drawable.ellipse9),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(ReviewerAvatar)
                     .clip(CircleShape)
             )
 
@@ -47,35 +48,34 @@ fun Review() {
             ) {
                 Text(
                     text = stringResource(id = R.string.reviewername_1),
-                    color = Color(0xFFA9ADB7),
+                    color = TextColor,
                     fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                    fontSize = 16.sp
+                    fontSize = TextLarge
                 )
                 Text(
                     text = stringResource(id = R.string.review_date),
-                    color = Color(0xFFA8ADB7),
+                    color = TextColor,
                     fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                    fontSize = 12.sp
+                    fontSize = TextMedium
                 )
             }
         }
         Text(
             text = stringResource(id = R.string.review),
-            color = Color(0xFFA9ADB7),
+            color = TextColor,
             fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp, bottom = 0.dp)
+            modifier = Modifier.padding(start = SpacerSize, top = 10.dp, end = SpacerSize)
         )
 
-        // Горизонтальная полоска после второго блока
-        Canvas(modifier = Modifier.padding(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp).fillMaxWidth()) {
+        Canvas(modifier = Modifier.padding(start = 40.dp, top = SpacerSize, end = 40.dp, bottom = SpacerSize).fillMaxWidth()) {
             drawRect(
-                color = Color(0xFF1A1F29),
+                color = LineColor,
                 size = Size(size.width, 1.dp.toPx())
             )
         }
 
         Row(
-            modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp).fillMaxWidth(),
+            modifier = Modifier.padding(start = SpacerSize, end = 20.dp).fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -83,7 +83,7 @@ fun Review() {
                 painter = painterResource(id = R.drawable.ellipse10),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(32.dp)
+                    .size(ReviewerAvatar)
                     .clip(CircleShape)
             )
 
@@ -94,23 +94,23 @@ fun Review() {
             ) {
                 Text(
                     text = stringResource(id = R.string.reviewername_2),
-                    color = Color(0xFFA9ADB7),
+                    color = TextColor,
                     fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                    fontSize = 16.sp
+                    fontSize = TextLarge
                 )
                 Text(
                     text = stringResource(id = R.string.review_date),
-                    color = Color(0xFFA8ADB7),
+                    color = TextColor,
                     fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                    fontSize = 12.sp
+                    fontSize = TextMedium
                 )
             }
         }
         Text(
             text = stringResource(id = R.string.review),
-            color = Color(0xFFA9ADB7),
+            color = TextColor,
             fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-            modifier = Modifier.padding(start = 20.dp, top = 10.dp, end = 20.dp, bottom = 0.dp)
+            modifier = Modifier.padding(start = SpacerSize, top = 10.dp, end = SpacerSize)
         )
         }
     }

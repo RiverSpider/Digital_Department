@@ -16,8 +16,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.material.Shapes
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.dotainstall.ui.theme.LogoSize
 
 @Composable
 fun DotaLogo(
@@ -53,7 +55,7 @@ fun DotaLogo(
 fun DotaLogoPreview() {
     DotaLogo(
         imageResId = R.drawable.logo,
-        size = 80.dp,
+        size = LogoSize,
         primaryBorderSize = 1.dp,
         primaryBorderColor = androidx.compose.ui.graphics.Color.DarkGray,
         cornerRadiusprimary = 8.dp,

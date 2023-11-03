@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.dotainstall.ui.theme.*
 
 @Composable
 fun Rating() {
@@ -32,9 +33,9 @@ fun Rating() {
             Text(
                 modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
                 text = stringResource(id = R.string.reviews_and_rating),
-                color = Color(0xFFA9ADB7),
+                color = TextColor,
                 fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                fontSize = 16.sp
+                fontSize = TextLarge
             )
 
             Row(
@@ -43,9 +44,9 @@ fun Rating() {
                 Text(
                     modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
                     text = stringResource(id = R.string.rating),
-                    color = Color(0xFFA9ADB7),
+                    color = TextColor,
                     fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                    fontSize = 48.sp
+                    fontSize = TextMassive
                 )
 
                 Spacer(modifier = Modifier.width(8.dp))
@@ -56,16 +57,16 @@ fun Rating() {
                                 imageVector = Icons.Default.Star,
                                 contentDescription = null,
                                 tint = Color.Yellow,
-                                modifier = Modifier.size(13.dp)
+                                modifier = Modifier.size(StarSize)
                             )
                         }
                     }
                     Spacer(modifier = Modifier.height(5.dp))
                     Text(
                         text = stringResource(id = R.string.reviews),
-                        color = Color(0xFFA8ADB7),
+                        color = TextColor,
                         fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-                        fontSize = 13.sp
+                        fontSize = TextMedium
                     )
                 }
 

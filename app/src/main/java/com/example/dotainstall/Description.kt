@@ -13,6 +13,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.res.TypedArrayUtils.getString
+import com.example.dotainstall.ui.theme.SpacerSize
+import com.example.dotainstall.ui.theme.TextColor
+import com.example.dotainstall.ui.theme.TextMedium
 
 @Composable
 fun DotaDescription() {
@@ -25,10 +28,10 @@ fun DotaDescription() {
 fun CustomTextWithSkModernistBold(text: String) {
     Text(
         text = text,
-        color = Color(0xFFA9ADB7),
+        color = TextColor,
         fontFamily = FontFamily(Font(R.font.skmodernistbold)),
-        fontSize = 13.sp,
-        modifier = Modifier.padding(20.dp)
+        fontSize = TextMedium,
+        modifier = Modifier.padding(SpacerSize)
     )
 }
 

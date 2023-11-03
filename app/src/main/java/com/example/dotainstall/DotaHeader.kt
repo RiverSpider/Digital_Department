@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.dotainstall.ui.theme.HeaderHeight
 
 @Composable
 fun DotaHeader() {
@@ -37,8 +38,7 @@ fun StatusBarBackground(imageResId: Int) {
         contentDescription = null,
         modifier = Modifier
             .fillMaxWidth()
-            .height(300.dp)
-            .padding(top = 0.dp),
+            .height(HeaderHeight),
         contentScale = ContentScale.Crop,
     )
     Spacer(modifier = Modifier.sizeIn(5.dp))

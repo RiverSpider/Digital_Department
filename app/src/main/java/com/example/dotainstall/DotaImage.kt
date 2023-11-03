@@ -11,17 +11,21 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Shapes
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
+import com.example.dotainstall.ui.theme.ImageHeight
+import com.example.dotainstall.ui.theme.ImageWidth
+import com.example.dotainstall.ui.theme.SpacerSize
 
 @Composable
 fun DotaImages(
     images: List<Int>,
     modifier: Modifier = Modifier,
-    imageSize: Dp
 ) {
+    val shapes = Shapes()
     Column {
     LazyRow(
         modifier = modifier,
@@ -32,9 +36,9 @@ fun DotaImages(
                 painter = painterResource(id = imageResId),
                 contentDescription = null,
                 modifier = Modifier
-                    .width(imageSize - 25.dp)
-                    .height(imageSize - 100.dp)
-                    .clip(RoundedCornerShape(20.dp))
+                    .width(ImageWidth)
+                    .height(ImageHeight)
+                    .clip(shapes.large)
                 )
             }
         }
@@ -51,8 +55,7 @@ fun ImagesRowPreview() {
     )
 
     DotaImages(images = imageList,
-        modifier = Modifier.padding(start = 20.dp, top = 0.dp, end = 20.dp, bottom = 0.dp),
-        imageSize = 200.dp
+        modifier = Modifier.padding(SpacerSize),
     )
 }
 
